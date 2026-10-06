@@ -6,7 +6,14 @@ This repository hosts Windows releases, user documentation, and issue reports. T
 
 ## Beta availability
 
-The first downloadable beta is being prepared. **There is no public application download yet.** See [release status](RELEASE_STATUS.md) for the current scope. Verified packages will appear on the [Releases page](https://github.com/ETONOTE/LumiFrame-Windows/releases).
+**[Download LumiFrame Windows 0.1.0 Beta 1](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v0.1.0-beta.1)**. This is an unsigned experimental Windows x64 release. See [release status](RELEASE_STATUS.md) for its validation scope and limitations.
+
+Download **both** runtime archives from the release:
+
+1. `LumiFrame-Windows-0.1.0-beta.1-win-x64.zip` (about 1.17 GB).
+2. `LumiFrame-Windows-0.1.0-beta.1-tensorrt-runtime.zip` (about 1.63 GB, required for AI engines).
+
+Extract both into the **same writable parent folder**, merging the `LumiFrame-Windows` directories, then start `LumiFrame-Windows/AniEdge.exe`. Do not run inside the ZIP or copy only the executable. Check downloads against `SHA256SUMS.txt` and read the included `README.txt` and terms. The corresponding-source ZIP is for library source/build recipes; it is not another runtime part. GitHub's automatically generated source-code archive contains this documentation repository, not the application.
 
 ## Features
 
@@ -36,6 +43,6 @@ Do not upload original videos, private paths, account details, keys, or full unr
 
 ## Licenses
 
-LumiFrame uses third-party libraries, models, and shaders. Their notices, applicable terms, and required corresponding source will accompany the binary release. Upstream names identify their respective projects; they do not imply endorsement.
+LumiFrame uses third-party libraries, models, and shaders. Full notices and applicable terms are included with the application. It dynamically links FFmpeg under LGPL version 2.1 or later, libplacebo and libiconv. Matching library sources, patches and build recipes are available in the `corresponding-source.zip` asset on the same release page. Upstream names identify their respective projects; they do not imply endorsement.
 
 PC and Android releases have separate validation and performance results. This repository does not distribute the Android app.
