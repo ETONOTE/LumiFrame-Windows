@@ -1,31 +1,32 @@
 ---
-name: 오류 또는 호환성 제보
-about: 재생, 변환, GPU 호환성 문제를 알려 주세요
+name: Bug or compatibility report
+about: Report a playback, conversion, startup, or GPU compatibility issue
 title: ''
 labels: ''
 assignees: ''
 ---
 
-## 실행 환경
+## Environment
 
-- 앱 버전:
-- Windows 버전:
-- GPU 모델과 드라이버 버전:
-- 선택 엔진과 Manual 또는 Auto:
-- 입력 해상도와 FPS:
-- 출력 해상도:
+- App version:
+- Windows version:
+- GPU model and driver version:
+- Engine and Manual/Auto setting:
+- Input resolution and source FPS:
+- Output resolution and AI input height:
+- First launch or cached launch:
 
-## 재현 방법과 결과
+## Steps and results
 
 1.
 2.
 
-예상한 결과:
-실제 결과:
+Expected result:
+Actual result:
 
-## 공개 정보 확인
+## Privacy check
 
-- [ ] 개인 경로, 계정 정보, 비밀 키를 제거했습니다.
-- [ ] 공유 권한이 없는 영상이나 캡처를 첨부하지 않았습니다.
+- [ ] I removed private paths, account information, and secrets.
+- [ ] I have permission to publish any attached media.
 
-전체 로그와 영상 원본은 기본적으로 첨부하지 마세요.
+Please do not attach original videos or full unreviewed logs. Share the smallest useful reproduction.

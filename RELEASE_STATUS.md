@@ -1,16 +1,28 @@
-# Windows 베타 준비 상태
+# Windows beta status
 
-실행 파일 공개는 아직 보류되어 있습니다. 릴리스가 게시되면 이 문서와 Releases에서 안내합니다.
+The first Windows beta is in final packaging. No executable or model package has been published yet.
 
-| 항목 | 상태 |
+| Area | Status |
 |---|---|
-| 공개 배포와 문제 접수 저장소 | 준비 |
-| 추가 학습 없이 검증된 기능부터 출시 | 적용할 원칙 |
-| 실시간 재생과 사진 및 영상 변환 | 개발 버전에 구현 |
-| CUGAN 및 Anime 6B의 일반 사용자 GPU 지원 | 준비 필요 |
-| 구성요소와 모델의 재배포 조건 | 확인 중 |
-| 첫 베타 실행 파일 | 미공개 |
-| Microsoft Store | 아직 제출하지 않음 |
+| Public distribution and issue tracker | Available |
+| Player, image upscaling, and video conversion | Implemented in the development build |
+| Mobile-inspired UI, Pretendard font, and LumiFrame icon | Applied |
+| V3, Hybrid, CUGAN, and 6B Auto startup checks | Passed on the reference GPU |
+| Current fine-tuned weights | Retained for the planned beta |
+| Personal-path removal from runtime libraries | In progress |
+| Third-party notices and corresponding source | Final packaging in progress |
+| Other GPUs and clean Windows installations | Not yet validated |
+| Downloadable beta | Not yet published |
+| Microsoft Store | Not submitted |
 
-PC와 모바일의 버전, 모델, 성능 수치는 서로 바꾸어 적용하지 않습니다.
-베타 게시 후에도 측정한 기기와 조건을 밝히며 모든 GPU의30FPS를 보장하지 않습니다.
+## Beta scope
+
+The planned release is a portable Windows x64 package. Extract the complete package before starting the application; do not copy only the executable. The executable currently retains the filename `AniEdge.exe` for compatibility, while the application is branded LumiFrame.
+
+The initial AI hardware scope is NVIDIA CUDA/TensorRT with Vulkan. The reference system uses an RTX 4070 SUPER. No universal GPU compatibility or all-engine 30 FPS guarantee is made.
+
+Additional training and Anime 6B reaching 30 FPS are not prerequisites for this first beta. Validated quality and performance improvements can follow in later releases.
+
+## Publication safeguards
+
+Only the reviewed release files will be uploaded. Training videos, user media, captures, private logs, caches, credentials, and private source history are excluded. Component notices and required source downloads will be published with the application.

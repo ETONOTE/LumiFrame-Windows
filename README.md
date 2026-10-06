@@ -1,39 +1,41 @@
 # LumiFrame for Windows
 
-Windows용 영상 업스케일링 플레이어의 배포 안내와 문제 접수 저장소입니다.
-모바일 LumiFrame과 PC 버전의 기능 및 지원 엔진은 별도로 관리합니다.
+LumiFrame is a GPU-accelerated video player and image/video upscaler for Windows. It brings local playback and file conversion into one desktop application.
 
-## 현재 배포 상태
+This repository hosts Windows releases, user documentation, and issue reports. The application source and training media are not hosted here.
 
-**PC 베타 공개 준비 중이며, 현재 다운로드 가능한 실행 파일은 없습니다.**
+## Beta availability
 
-개발 버전에는 실시간 영상 재생, 사진 업스케일링, 영상 파일 변환이 구현되어 있습니다.
-일반 사용자 PC에서 사용할 첫 베타의 지원 GPU와 엔진 범위는 아직 확정 중입니다.
-연구용 실행 파일을 그대로 공개하지 않고 하드웨어 호환성과 재배포 조건을 먼저 정리합니다.
+The first downloadable beta is being prepared. **There is no public application download yet.** See [release status](RELEASE_STATUS.md) for the current scope. Verified packages will appear on the [Releases page](https://github.com/ETONOTE/LumiFrame-Windows/releases).
 
-현재 일부 CUGAN 및 Anime 6B 가속은 특정 개발 GPU에 결합되어 있습니다.
-같은 GPU 모델을 사용하는 모든 PC에서 동작하거나 모든 엔진이30FPS라는 주장은 하지 않습니다.
+## Features
 
-## 출시 방향
+- Local video playback with GPU upscaling.
+- Image upscaling and video file conversion.
+- Anime4K Fast/Quality, E6 (EfRLFN family), AnimeVideo-v3, Hybrid, Real-CUGAN, and Anime 6B engine options.
+- Manual selection or adaptive switching within a bounded engine chain.
+- Playback controls, volume, timeline seeking, and frame capture.
 
-1. 지원 가능한 엔진과 하드웨어 범위를 확정합니다.
-2. 설치와 재생 안정성, 라이선스 및 업데이트 방식을 검증합니다.
-3. 이 저장소의 Releases에 베타 파일과 변경 내역을 제공합니다.
-4. 검증된 성능 및 화질 개선을 후속 업데이트로 제공합니다.
+The playback defaults are **AnimeVideo-v3, Auto, 1080p output, and 360p AI input height**. The app UI currently uses Korean labels.
 
-추가 학습이나 Anime 6B의30FPS 달성 자체는 첫 베타의 선행 조건이 아닙니다.
-출력 정확성, 재생 안전성, 재배포 조건은 베타에서도 확인합니다.
+V3, Hybrid, CUGAN, and 6B are peer choices. Auto considers the selected peer together with E6 and Anime4K; it does not automatically rotate between all four peer models. This grouping is a selection policy, not a claim of equal quality or speed.
 
-## 피드백
+## Hardware and startup
 
-Issues에 Windows 버전, GPU 모델과 드라이버, 앱 버전, 선택 엔진, 입력/출력 해상도,
-재현 순서를 적어 주세요. 지원되지 않은 환경도 호환성 요청으로 남길 수 있습니다.
+The current AI package uses NVIDIA CUDA/TensorRT and Vulkan on the same GPU. Runtime checks have been performed on an RTX 4070 SUPER. Other GPUs and clean Windows installations are not yet validated; AMD and Intel AI support is not claimed for this package.
 
-영상 원본, 저작권이 있는 캡처, 개인 경로가 포함된 로그, 계정 정보나 키를 올리지 마세요.
-공개해도 되는 최소한의 재현 정보만 공유해 주세요.
+First-time AI preparation can take several minutes while execution plans are built for your GPU and input shape. Plans are cached locally. Changing the engine, input shape, driver, or runtime may require rebuilding them.
 
-## 소스와 라이선스
+Performance depends on the engine, video, resolution, GPU, and other workloads. **30 FPS is not guaranteed for every engine or device.** Earlier measurements from development-only acceleration paths do not describe the new portable beta path.
 
-이 저장소는 배포 및 지원 전용이며 비공개 개발 소스와 학습 자료는 포함하지 않습니다.
-실행 파일 공개 시 해당 버전의 제3자 고지, 필요한 대응 소스 및 사용 조건을 함께 제공합니다.
-저장소 생성만으로 아직 공개하지 않은 프로그램이나 가중치의 사용권이 부여되지는 않습니다.
+## Feedback
+
+Use [Issues](https://github.com/ETONOTE/LumiFrame-Windows/issues) to report playback, conversion, or compatibility problems. Include the app version, Windows version, GPU and driver, engine, input/output resolution, and reproducible steps.
+
+Do not upload original videos, private paths, account details, keys, or full unreviewed logs. Share only the minimum information and media you have permission to publish.
+
+## Licenses
+
+LumiFrame uses third-party libraries, models, and shaders. Their notices, applicable terms, and required corresponding source will accompany the binary release. Upstream names identify their respective projects; they do not imply endorsement.
+
+PC and Android releases have separate validation and performance results. This repository does not distribute the Android app.
