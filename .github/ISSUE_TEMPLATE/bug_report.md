@@ -9,8 +9,9 @@ assignees: ''
 ## Environment
 
 - App version:
-- Windows version:
-- GPU model and driver version:
+- Platform and OS version (Windows / Android):
+- GPU model and driver, or Android device model (no serial number):
+- Installation channel (Windows ZIP / Google Play / APK, if applicable):
 - Engine and Manual/Auto setting:
 - Input resolution and source FPS:
 - Output resolution and AI input height:
