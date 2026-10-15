@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="240" viewBox="0 0 1120 240" role="img" aria-labelledby="title desc">
+  <title id="title">LumiFrame for Windows</title>
+  <desc id="desc">Local video playback, image conversion and video conversion with AI upscaling.</desc>
+  <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#10232e"/><stop offset="1" stop-color="#091217"/></linearGradient></defs>
+  <rect width="1120" height="240" rx="24" fill="url(#bg)"/>
+  <g fill="none" stroke="#66e4c5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M65 88V65h27M158 88V65h-27M65 152v23h27M158 152v23h-27"/>
+    <path d="M97 94l38 26-38 26Z" fill="#66e4c5" stroke-width="3"/>
+  </g>
+  <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="207" y="109" font-size="54" font-weight="650" fill="#f4f9fc">LumiFrame</text>
+    <text x="210" y="148" font-size="23" fill="#b8ccd5">Local media. AI upscaling. Your GPU.</text>
+    <text x="210" y="192" font-size="16" fill="#70dec5">VIDEO PLAYBACK  /  IMAGE CONVERSION  /  VIDEO CONVERSION</text>
+    <rect x="872" y="55" width="193" height="38" rx="19" fill="#183b3b"/>
+    <text x="968" y="80" font-size="16" text-anchor="middle" fill="#96f0d9">WINDOWS BETA</text>
+  </g>
+</svg>
