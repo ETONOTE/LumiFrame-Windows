@@ -12,6 +12,6 @@
     <text x="210" y="148" font-size="23" fill="#b8ccd5">Local media. AI upscaling. Your GPU.</text>
     <text x="210" y="192" font-size="16" fill="#70dec5">VIDEO PLAYBACK  /  IMAGE CONVERSION  /  VIDEO CONVERSION</text>
     <rect x="872" y="55" width="193" height="38" rx="19" fill="#183b3b"/>
-    <text x="968" y="80" font-size="16" text-anchor="middle" fill="#96f0d9">WINDOWS BETA</text>
+    <text x="968" y="80" font-size="16" text-anchor="middle" fill="#96f0d9">WINDOWS 1.0</text>
   </g>
 </svg>

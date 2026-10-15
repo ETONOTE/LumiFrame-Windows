@@ -1,6 +1,6 @@
 # LumiFrame Windows privacy notice
 
-Updated October 15, 2026. This notice covers the Windows portable beta, not the separate Android app.
+Updated October 15, 2026. This notice covers the Windows portable app, not the separate Android app.
 
 ## Media processing
 
@@ -8,7 +8,7 @@ LumiFrame opens the media you choose and processes it on your computer. The Wind
 
 ## Local files and diagnostics
 
-Preferences, GPU execution caches and diagnostic files can be stored locally. Diagnostics may include file paths, media properties, selected engine, hardware information and errors. Local processing does not mean these files are safe to publish without review.
+Preferences (including the selected interface language), GPU execution caches and diagnostic files can be stored locally. Diagnostics may include file paths, media properties, selected engine, hardware information and errors. Local processing does not mean these files are safe to publish without review.
 
 Before sharing a screenshot or report, remove personal filenames and paths, usernames, email addresses, device identifiers, access tokens and private media. Do not attach a complete project folder, cache, crash dump or unreviewed log to a public issue.
 

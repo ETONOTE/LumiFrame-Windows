@@ -1,10 +1,11 @@
 # LumiFrame Windows roadmap
 
-The immediate priority is a usable, clearly documented beta. Dates and performance gains are not promised before validation.
+The immediate priority is a usable, clearly documented release. Dates and performance gains are not promised before validation.
 
 ## Release foundation
 
 - Publish a privacy-reviewed Windows package with complete runtime setup instructions.
+- Add trusted code signing after publisher identity and privacy requirements are settled.
 - Preserve previous releases for rollback and gather reproducible compatibility reports.
 - Prepare Microsoft Store packaging, account verification and certification. The app is **not yet available in Microsoft Store**.
 
