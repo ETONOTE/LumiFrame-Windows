@@ -10,6 +10,14 @@ LumiFrame combines a local media player with multiple upscaling engines. Choose 
 
 This repository hosts **Windows downloads, documentation, and issue reports**, plus Android test information. It is not the application source repository. The Windows interface supports **Korean and English**. Use the language button next to Help in the lower-left utility bar; the selection is saved for the next launch. This documentation is in English.
 
+## Upscaling example
+
+![Yu Yu Hakusho: the same full 360p frame, with ordinary display scaling on the left and LumiFrame AnimeVideo-v3 on the right](docs/assets/yuyuhakusho-v3-360p-to1080p.png)
+
+**Left:** the 480 × 360 source frame enlarged with bicubic display scaling. **Right:** the same frame processed by LumiFrame 1.0.0 with AnimeVideo-v3, using the full 480 × 360 AI input and a 1440 × 1080 output. Both sides retain the original 4:3 aspect ratio; neither is cropped or additionally sharpened.
+
+This scene illustrates cleaner facial and hair outlines, not a universal quality guarantee. Upscaling can also simplify texture or faint detail. The source artwork is from *Yu Yu Hakusho* and belongs to its respective rights holders; it is not licensed as LumiFrame artwork, and no affiliation or endorsement is implied.
+
 ## Downloads
 
 | Platform | Version and status | Download or details |
