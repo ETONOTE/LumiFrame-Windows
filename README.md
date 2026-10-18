@@ -2,7 +2,7 @@
 
 ![LumiFrame — local video playback and AI upscaling](docs/assets/lumiframe-banner.svg)
 
-**[Download NVIDIA + AMD preview 1.1.0-dev.217](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.217)** · [Stable NVIDIA 1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
+**[Download LumiFrame Setup — NVIDIA + AMD](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-Setup.exe)** · [Stable NVIDIA 1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
 
 GPU-accelerated video playback and image/video upscaling, with a focus on animation. Processing runs on your computer; media is not uploaded to an upscaling server.
 
@@ -22,7 +22,7 @@ This scene illustrates cleaner facial and hair outlines, not a universal quality
 
 | Platform | Status | Download |
 |---|---|---|
-| Windows x64, NVIDIA or AMD | **1.1.0-dev.217 preview**; AMD physical hardware validation pending | [GPU-specific packages](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.217) |
+| Windows x64, NVIDIA or AMD | **1.1.0-dev.217 preview**; AMD physical hardware validation pending | [One installer for both GPUs](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-Setup.exe) |
 | Windows x64, NVIDIA | Previous stable release, 1.0.0 | [Previous download](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
 | Android | Separate closed-test track; no APK in this Windows release | [Earlier Android test notes](ANDROID.md) |
 
@@ -30,33 +30,24 @@ The AMD integration uses the teammate's [AniEdge for AMD](https://github.com/KOR
 
 ### Windows installation
 
-1. Download the **[common launcher ZIP](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-launcher-win-x64.zip)**.
-2. Download your GPU channel:
+1. Download **[LumiFrame-Windows-1.1.0-dev.217-Setup.exe](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-Setup.exe)**.
+2. Run Setup and install LumiFrame. **This one installer automatically installs both NVIDIA and AMD runtimes and models.** No GPU-specific download selection or manual ZIP merging is needed.
+3. Open **LumiFrame** from the Start menu (or the optional desktop shortcut). It detects the GPU automatically, starts the matching runtime, and benchmarks that channel's models on first use.
 
-| GPU | Required channel downloads |
-|---|---|
-| AMD | [AMD application, model and runtime](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-amd-win-x64.zip) |
-| NVIDIA | [NVIDIA application and models](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-nvidia-win-x64.zip) **and** [NVIDIA TensorRT runtime](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-nvidia-tensorrt-runtime-win-x64.zip) |
+Setup automatically downloads and installs both GPU channels, with SHA256 verification. **Internet is required during installation** (about 2.9 GB of downloads and 3.8 GB installed, plus temporary space). After installation, normal use and benchmarking are offline. Setup installs for the current user without administrator privileges. GPU drivers and the Microsoft Visual C++ x64 runtime remain system prerequisites. [Installer SHA256](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/SHA256SUMS-Setup.txt) verifies the download.
 
-3. Extract the launcher and selected channel ZIPs into the **same new writable folder**, merging their `LumiFrame-Windows` folders.
-4. Open the top-level **`LumiFrame.exe`**. Keep the entire folder together; do not run it from inside a ZIP.
+Both GPU channels are installed together but retain separate files, settings, benchmark caches and update versions. On a mixed-GPU PC, the launcher prefers the eligible adapter with most dedicated VRAM. An explicit `--backend amd` or `--backend nvidia` can select a present GPU family. Manual model settings are preserved.
 
-```text
-LumiFrame-Windows/
-  LumiFrame.exe                 <- open this
-  Update-Channel.ps1
-  runtimes/
-    amd/                        <- if installed
-      current.txt
-      1.1.0-dev.217/
-    nvidia/                     <- if installed
-      current.txt
-      1.1.0-dev.217/
-```
+Keep your previous portable version for rollback. The standard installer creates a Start menu shortcut and an uninstaller. Advanced portable extraction is available with `Setup.exe /PORTABLE=1 /DIR="C:\LumiFrame"`.
 
-Install both channels if the launcher should choose between AMD and NVIDIA adapters. Otherwise install the channel for the GPU you intend to use. AMD does not require the NVIDIA downloads. On a mixed-GPU PC, the launcher prefers the eligible adapter with most dedicated VRAM; an explicit `--backend amd` or `--backend nvidia` selects that family if present.
+<details>
+<summary>Advanced: manual portable packages and individual channel updates</summary>
 
-Keep 1.0.0 for rollback. Its flat-folder runtime ZIP cannot substitute for the new channel ZIPs. [SHA256SUMS.txt](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/SHA256SUMS.txt) contains checksums. The corresponding-source and GitHub source-code ZIPs are **not installation packages**.
+The separate launcher, AMD, NVIDIA and NVIDIA TensorRT ZIPs on the [release page](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.217) remain available for manual deployment and GPU-specific updates. **They are not required when using Setup.** Manual NVIDIA deployment requires both NVIDIA ZIPs. Extract manual packages into the same new `LumiFrame-Windows` folder and run its top-level `LumiFrame.exe`.
+
+The [ZIP checksums](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/SHA256SUMS.txt) apply to those original assets. The 1.0.0 runtime ZIP uses an older directory layout. Corresponding-source and GitHub source-code ZIPs are not installation packages.
+
+</details>
 
 ## What's new
 
@@ -112,14 +103,14 @@ Updates require a new version directory. This script installs local packages; it
 - Windows x64, current Vulkan drivers, and the Microsoft Visual C++ x64 runtime. NVIDIA AI needs a compatible CUDA-capable GPU; AMD needs DirectX 12. Intel-only systems are not supported by this launcher.
 - **AMD physical hardware validation is pending.** Both builds and shared policy tests passed on the NVIDIA development host, but AMD drivers, sustained playback and performance still require an AMD PC.
 - AMD model inputs require even dimensions and at most 720p area. Use 360p/480p AI height for larger sources. Its GPU inference currently uses CPU transfer buffers.
-- This is an unsigned portable preview; it is not a Microsoft Store release. The previous 1.0.0 release remains available.
+- This is an unsigned preview; it is not a Microsoft Store release. The previous 1.0.0 release remains available.
 - First-time AI preparation may be lengthy. GPU memory, input shape and background load affect performance. All-model 30 FPS and large long-video speedups are not promised.
 - An earlier whole-file V3 audio-drain timeout remains a compatibility follow-up. Short passing tests do not certify every file.
 - Upscaling can smooth or reconstruct faces, fine lines and texture incorrectly. It does not provide motion interpolation or recover guaranteed original detail.
 
 ## Troubleshooting
 
-**Missing channel or DLL:** fully extract the launcher and all required channel ZIPs into the same folder. Check the directory layout and GPU family. Do not use the 1.0.0 runtime ZIP in this layout or download individual unofficial DLLs.
+**Missing channel or DLL:** run the unified Setup again and check the system GPU driver and Visual C++ runtime. Advanced ZIP users must combine the correct channel archives. Do not download individual unofficial DLLs.
 
 **Benchmark skipped or a model failed:** Settings offers remeasurement. Cold model preparation may exceed the bounded test; incomplete candidates are excluded. A manual model selection remains available.
 

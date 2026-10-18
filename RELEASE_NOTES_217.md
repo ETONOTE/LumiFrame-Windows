@@ -2,17 +2,15 @@
 
 This preview adds independent NVIDIA and AMD runtimes, first-run performance-based model selection, and main/settings screen repaint fixes.
 
-## Download and install
+## Download and install — one file
 
-Download the **launcher** ZIP plus your GPU channel, then extract them into the same **new** writable folder:
+**[Download LumiFrame-Windows-1.1.0-dev.217-Setup.exe](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-Setup.exe)**
 
-| GPU | Additional ZIPs required |
-|---|---|
-| AMD | `amd-win-x64.zip` |
-| NVIDIA | `nvidia-win-x64.zip` **and** `nvidia-tensorrt-runtime-win-x64.zip` |
-| Both channels | All three channel ZIPs |
+Run this one installer, then open LumiFrame. **Both NVIDIA and AMD runtimes and models are installed automatically.** The app automatically detects the GPU and starts its matching channel; the first launch measures the available models to recommend a starting model. No GPU-specific download selection or ZIP merging is required.
 
-All archive names begin with `LumiFrame-Windows-1.1.0-dev.217-`. Merge their `LumiFrame-Windows` folders and launch the top-level `LumiFrame.exe`. The 1.0.0 flat-folder runtime ZIP cannot replace the new NVIDIA channel ZIP. `SHA256SUMS.txt` lists checksums; the corresponding-source ZIP is not needed to run the app.
+Setup automatically downloads and verifies both GPU channels, so **internet is required during installation** (about 2.9 GB download / 3.8 GB installed, plus temporary space). No further downloads are needed for ordinary use or benchmarking. It installs for the current user, creates a Start menu shortcut and includes an uninstaller. A desktop shortcut is optional. GPU drivers and the Microsoft Visual C++ x64 runtime remain system prerequisites. [SHA256SUMS-Setup.txt](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/SHA256SUMS-Setup.txt) contains the installer checksum.
+
+Packaging correction: the initial ZIP-only publication exposed the internal channel split to users. The unified installer fixes that installation experience; application/model bytes and GPU detection behavior are unchanged. GPU-specific ZIPs remain available only for advanced manual deployment and independent channel updates. They are not additional downloads required by Setup.
 
 ## Changes
 
