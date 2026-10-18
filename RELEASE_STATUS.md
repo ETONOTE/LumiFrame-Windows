@@ -1,23 +1,19 @@
 # Release status
 
-Last documented update: **October 15, 2026** (Windows update; Android remains a separate test track).
+Last updated: **October 18, 2026**.
 
-## Windows
+## Current Windows preview
 
-[1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) is the Windows update, distributed as an unsigned x64 portable app. Download both the application ZIP and the required AI runtime ZIP. Keep the old version for rollback and extract the update into a new folder. Open `LumiFrame.exe`.
+[1.1.0-dev.217](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.217) integrates AMD DirectML and NVIDIA CUDA/TensorRT runtimes, independent GPU channel updates, first-run performance-based model selection, and main/settings repaint fixes. Download the common launcher plus the ZIP(s) for your GPU. See [installation](README.md#windows-installation) and [release notes](RELEASE_NOTES_217.md).
 
-The release includes playback and image/video conversion. Playback offers Anime4K, E6, V3, Hybrid and CUGAN; **Anime 6B is conversion-only**. Auto uses the selected heavy playback engine with E6 and Anime4K, not unrestricted switching among all models.
+32 NVIDIA and 27 AMD host regression tests passed. Actual NVIDIA playback and benchmark/UI flows were checked on RTX 4070 SUPER. **AMD physical hardware validation remains pending**; DirectML contract checks on NVIDIA do not certify AMD hardware. The short benchmark recommends a starting model; it does not guarantee full playback performance for every video.
 
-Validation has focused on RTX 4070 SUPER. Other GPUs and clean Windows installations are not yet validated. All-model 30 FPS, Microsoft Store release, and automatic updates are not available.
+This is an unsigned prerelease. It is not a Microsoft Store release and does not download updates automatically. Model preparation, input bounds, GPU memory and long-video compatibility remain limitations. No Android APK is included.
 
-Version 1.0.0 adds saved Korean/English switching beside Help and refines the footer layout. It retains the refreshed UI, expanded CUGAN shape handling and the bounded common photo/video conversion optimizations without changing model weights or encoder quality. The release notes describe the current build's tests. A clean build passed 34 host tests; the final footer revision passed 21 bounded runtime checks. Both language modes and the footer were checked in dark/light themes. Signing is deferred; Windows security warnings remain possible. Historical speed measurements are not broad hardware or sustained-stability certification. Reference-device native6B experiments are excluded from the public package.
+## Previous stable Windows version
 
-Known limitations include GPU memory and model bounds on large/unusual inputs, potentially lengthy first-time plans and slow conversion with heavy engines. A previously observed V3 whole-file audio-drain timeout remains a compatibility follow-up; short passing tests do not certify every media file. Large long-video speedup is not complete.
+[1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) remains available for NVIDIA users and rollback. Its application and TensorRT archives use the older flat-directory layout; they are not interchangeable with preview channel archives.
 
 ## Android
 
-The [Android notes](ANDROID.md) describe an earlier closed-test cycle. This Windows update does not establish current Play review status, tester eligibility or the feature set of a newer mobile build.
-
-No APK is included with this Windows release. Mobile distribution and testing are managed separately.
-
-See [Windows setup and features](README.md) and [Android test details](ANDROID.md).
+[Android notes](ANDROID.md) describe an earlier closed-test cycle. This Windows update does not establish current Play review status, tester eligibility or a newer mobile build's feature set. Mobile distribution and testing remain separate.

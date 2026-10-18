@@ -12,6 +12,8 @@ assignees: ''
 - Platform and OS version (Windows / Android):
 - GPU model and driver, or Android device model (no serial number):
 - Installation channel (Windows ZIP / Google Play / APK, if applicable):
+- GPU runtime channel (NVIDIA / AMD), if applicable:
+- First-run benchmark result or skipped/failed candidate:
 - Engine and Manual/Auto setting:
 - Input resolution and source FPS:
 - Output resolution and AI input height:

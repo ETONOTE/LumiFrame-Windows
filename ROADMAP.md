@@ -15,6 +15,6 @@ The immediate priority is a usable, clearly documented release. Dates and perfor
 2. **Preparation time:** reduce first-use CUGAN/V3 preparation and improve progress feedback without displaying unprocessed frames as AI output.
 3. **Conversion throughput:** reduce whole-video processing time while preserving frames, timestamps, audio and agreed image quality. A photo-only improvement is not a video-speed claim.
 4. **Quality:** compare V3, CUGAN and 6B on diverse scenes, then evaluate tuning and training with appropriately licensed data.
-5. **Broader hardware support:** investigate AMD/Intel backends and validate on real target hardware before claiming support.
+5. **Broader hardware support:** validate the new AMD DirectML integration on AMD hardware, improve its transfer path, and investigate Intel support separately.
 
 Anime 6B remains conversion-only. No all-model 30 FPS or automatic scene-to-best-model selection is promised. Changes should be supported by numerical checks and visible comparisons, not a benchmark number alone.

@@ -2,13 +2,13 @@
 
 ![LumiFrame — local video playback and AI upscaling](docs/assets/lumiframe-banner.svg)
 
-**[Download Windows 1.0.0 (NVIDIA)](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0)** · **[AMD graphics only — Download](https://github.com/KORTibetfox/AniEdge-for-AMD)** · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
+**[Download NVIDIA + AMD preview 1.1.0-dev.217](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.217)** · [Stable NVIDIA 1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
 
-GPU-accelerated video playback and image/video upscaling, with a focus on animation.
+GPU-accelerated video playback and image/video upscaling, with a focus on animation. Processing runs on your computer; media is not uploaded to an upscaling server.
 
-LumiFrame combines a local media player with multiple upscaling engines. Choose an engine for your content, set an output resolution, and watch the result during playback or convert a file for later use. Processing runs on your computer or device; media is not uploaded to an upscaling server.
+LumiFrame now integrates NVIDIA and AMD runtimes behind one interface. On first launch, it detects a suitable GPU, measures the available models, and recommends a starting playback model. The Windows interface supports Korean and English; use the language button beside Help.
 
-This repository hosts **Windows downloads, documentation, and issue reports**, plus Android test information. It is not the application source repository. The Windows interface supports **Korean and English**. Use the language button next to Help in the lower-left utility bar; the selection is saved for the next launch. This documentation is in English.
+This repository hosts **Windows downloads, documentation and issue reports**, plus separate Android test information. It is not the application source repository.
 
 ## Upscaling example
 
@@ -20,114 +20,119 @@ This scene illustrates cleaner facial and hair outlines, not a universal quality
 
 ## Downloads
 
-| Platform | Version and status | Download or details |
+| Platform | Status | Download |
 |---|---|---|
-| Windows x64 (NVIDIA) | 1.0.0 — unsigned portable release | [Download both required ZIPs](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
-| Windows x64 (AMD) | AniEdge for AMD — separate AMD-only build | [AMD graphics only — Download](https://github.com/KORTibetfox/AniEdge-for-AMD) |
-| Android | Separate closed-test track | [Earlier Android test notes](ANDROID.md) |
+| Windows x64, NVIDIA or AMD | **1.1.0-dev.217 preview**; AMD physical hardware validation pending | [GPU-specific packages](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.217) |
+| Windows x64, NVIDIA | Previous stable release, 1.0.0 | [Previous download](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
+| Android | Separate closed-test track; no APK in this Windows release | [Earlier Android test notes](ANDROID.md) |
 
-This Windows release does not include an Android APK. The Android document records an earlier test cycle; current Play availability depends on that separate track and tester eligibility.
-
-For AMD graphics cards, use [AniEdge for AMD](https://github.com/KORTibetfox/AniEdge-for-AMD) and follow the download and installation instructions in that repository.
+The AMD integration uses the teammate's [AniEdge for AMD](https://github.com/KORTibetfox/AniEdge-for-AMD) model and DirectML integration. Its upstream project remains separate; the preview above runs inside LumiFrame.
 
 ### Windows installation
 
-For the NVIDIA package, download **both** files:
+1. Download the **[common launcher ZIP](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-launcher-win-x64.zip)**.
+2. Download your GPU channel:
 
-1. [Application ZIP](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/LumiFrame-Windows-1.0.0-win-x64.zip)
-2. [Required AI runtime ZIP](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/LumiFrame-Windows-1.0.0-tensorrt-runtime.zip)
+| GPU | Required channel downloads |
+|---|---|
+| AMD | [AMD application, model and runtime](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-amd-win-x64.zip) |
+| NVIDIA | [NVIDIA application and models](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-nvidia-win-x64.zip) **and** [NVIDIA TensorRT runtime](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-nvidia-tensorrt-runtime-win-x64.zip) |
 
-Extract both into the **same writable folder**, merging their `LumiFrame-Windows` folders. Run **`LumiFrame-Windows/LumiFrame.exe`**. Do not run it inside the ZIP or copy only the executable to another folder.
+3. Extract the launcher and selected channel ZIPs into the **same new writable folder**, merging their `LumiFrame-Windows` folders.
+4. Open the top-level **`LumiFrame.exe`**. Keep the entire folder together; do not run it from inside a ZIP.
 
 ```text
 LumiFrame-Windows/
-  LumiFrame.exe          ← open this
-  aniedge_convert.exe
-  nvinfer_10.dll          ← from the required runtime ZIP
-  models/
-  shaders/
-  licenses/
+  LumiFrame.exe                 <- open this
+  Update-Channel.ps1
+  runtimes/
+    amd/                        <- if installed
+      current.txt
+      1.1.0-dev.217/
+    nvidia/                     <- if installed
+      current.txt
+      1.1.0-dev.217/
 ```
 
-The corresponding-source and GitHub "Source code" archives are **not required to run the app**. [SHA256SUMS.txt](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/SHA256SUMS.txt) contains the download checksums.
+Install both channels if the launcher should choose between AMD and NVIDIA adapters. Otherwise install the channel for the GPU you intend to use. AMD does not require the NVIDIA downloads. On a mixed-GPU PC, the launcher prefers the eligible adapter with most dedicated VRAM; an explicit `--backend amd` or `--backend nvidia` selects that family if present.
 
-For an update, extract into a **new folder** and keep the old version for rollback. The runtime library bytes are unchanged from Beta 2, but a fresh installation still needs both ZIPs. Do not replace individual libraries with unofficial downloads.
+Keep 1.0.0 for rollback. Its flat-folder runtime ZIP cannot substitute for the new channel ZIPs. [SHA256SUMS.txt](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/SHA256SUMS.txt) contains checksums. The corresponding-source and GitHub source-code ZIPs are **not installation packages**.
 
-### What's new in 1.0.0
+## What's new
 
-- Korean/English interface switching next to Help, with a saved language preference.
-- Refined footer spacing, icons and captions in dark/light themes.
-- Refreshed layout, playback controls, in-app help and preferences.
-- Original/upscaled split comparison available through playback settings.
-- Expanded CUGAN input-shape handling and more flexible AI processing height.
-- Common video preparation overlap and photo encoding/cleanup overlap, retaining the existing model weights and encoder quality.
-- **Anime 6B is conversion-only.** It no longer appears in playback selection or the Auto fallback chain.
-- A separate public build excludes development-device identifiers and device-bound experimental execution plans.
+- AMD DirectML CUGAN Denoise x2 joins the existing NVIDIA CUDA/TensorRT engines in the same UI.
+- NVIDIA and AMD have separate runtime DLLs, models, saved settings, benchmark results and update versions.
+- First-run measurement chooses a starting model from the detected GPU's available engines. Settings can remeasure and apply a recommendation.
+- Main/settings window scrolling, resizing and maximize/restore repaint moved controls to fix retained pixels and screen corruption.
+- The previous Korean/English interface, playback controls, split comparison and photo/video conversion remain available.
 
-The included preparation-overlap change previously reduced a cached V3 60-frame conversion from **2.319 to 2.218 seconds (about 4.4%)** on the reference RTX 4070 SUPER. That is a short-clip result, not a claim of a large long-video speedup. First-use AI preparation can still be lengthy. See the [release notes](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) for the exact validation scope.
+See the [preview release notes](RELEASE_NOTES_217.md) for validation details and limitations.
 
-## What you can do
+## First-run model selection
 
-- **Upscaled playback:** choose an engine and a 1080p or 1440p output target while preserving the video's aspect ratio.
-- **Player controls:** pause/resume, stop, jump backward or forward, seek with the timeline, adjust volume, capture a frame, and switch fullscreen with F11 / Esc.
-- **Preferences:** save playback defaults and transport-display settings.
-- **Image conversion:** process a still image and save the result.
-- **Video conversion:** process a video for file output instead of live viewing.
-- **Manual or Auto selection:** keep the selected engine fixed, or use the supported fallback chain when playback performance requires it.
-- **Adjustable AI input:** trade processing cost against retained input detail independently of the final output resolution.
+The launcher detects hardware without reading user media. It excludes software adapters and requires DirectX 12 for AMD. Each channel then benchmarks its own engines with a moving synthetic **640 × 360 input → 1920 × 1080 output**.
 
-Window size is separate from the internal upscaling target. A windowed player does not mean the output target has been disabled.
+- Four warm-up frames are excluded; 32–120 frames are measured through actual GPU completion.
+- The target is **30 fps**, with spare time for playback: **P95 ≤ 25 ms and P99 ≤ 30 ms**.
+- Choose the highest eligible application tier; among peers, choose lower P95. If none meets the budget, choose the fastest successfully measured model. Failed or incomplete candidates cannot win.
+- NVIDIA measures Anime4K Fast/Quality, E6, Hybrid, V3 and CUGAN. AMD measures Anime4K Fast/Quality and AMD CUGAN.
+- Preparation can take up to 45 seconds per model, bounded to 150 seconds overall. You can skip. The result is saved and reused; GPU, driver, model or runtime changes trigger new measurement.
+- Previously saved manual choices are preserved. **Settings → remeasure and automatically select a model** explicitly applies a new recommendation, using Auto / 360p AI input / 1080p output.
 
-## Engines
+This measures a short synthetic workload, not image quality or full video decoding/audio/display performance. It cannot guarantee 30 fps for every video. Live Auto continues to respond to real playback load. [More benchmark details](BENCHMARK.md).
 
-The engines produce different results; this is **not a universal quality ranking**.
+## Engines and playback
 
-| Engine | Intended use and current considerations |
+| Channel | Engines |
 |---|---|
-| Anime4K | Shader-based animation enhancement and the lighter end of the playback fallback chain. Different tradeoffs from a large neural model. |
-| E6 / EfRLFN | A lighter neural option used between the selected heavier engine and Anime4K in the Auto chain. |
-| AnimeVideo-v3 (V3) | General animation restoration. Can simplify faint lines or ambiguous detail in heavily degraded sources. |
-| Hybrid | A combined restoration approach with a different balance of natural and perceptual detail. Compare on your own scenes. |
-| CUGAN | An alternative animation model that can separate fine mechanical lines well in some sources. Results vary by scene. |
-| Anime 6B | A heavier Real-ESRGAN anime option for **image and video conversion only**. Not a playback engine in this release. |
+| Both | Anime4K Fast and Quality |
+| NVIDIA | E6 / EfRLFN, Hybrid, AnimeVideo-v3, CUGAN; Anime 6B for conversion only |
+| AMD | Old-film Denoise Real-CUGAN Pro x2 through DirectML |
 
-V3, Hybrid and CUGAN are peer playback options. **Auto uses the selected heavy engine, E6 and Anime4K**; it does not rotate among all peer engines or classify every scene for the best-looking model. File conversion keeps the chosen engine rather than silently substituting a faster model.
+V3, Hybrid and NVIDIA CUGAN are peer playback options, not a universal quality ranking. NVIDIA Auto falls back from the selected heavy engine through E6 and Anime4K. AMD Auto uses AMD CUGAN and Anime4K. Auto does not switch among every peer model to classify scenes. File conversion retains the selected engine.
 
-## First playback and settings
+Choose a local video, allow initial model preparation, then play. Pause, seek, adjust volume, capture a frame, or use F11 / Esc for fullscreen. Preferences include original/upscaled split comparison. Photos and videos can also be converted to files.
 
-1. Select a local video.
-2. Start with the defaults: **V3 / Auto / 1080p / 360p AI input**.
-3. Press Play and allow AI preparation to finish. First-time preparation for an engine, input shape, or GPU can take several minutes. Later runs reuse cached plans.
-4. Use Manual mode when comparing a specific engine so Auto does not change the processing path during the comparison.
+AI input height is separate from source and output resolution. Processing a 720p source at 360p before producing 1080p lowers cost but can discard detail. Window size is also separate from the upscaling target.
 
-The AI input setting is not the original video's resolution. For example, a 720p source can be processed at a 360p working height before producing a 1080p output. This reduces processing cost but can discard small details. Raising the final output resolution does not restore information already lost at the input stage.
+## Updating one GPU channel
 
-## Windows requirements and limitations
+Close LumiFrame and extract a newer channel's complete ZIP(s) into a temporary folder. For NVIDIA, combine both NVIDIA archives. Run the installed script against the extracted **version folder**:
 
-- Windows x64, an NVIDIA GPU with compatible CUDA and Vulkan drivers, and the Microsoft Visual C++ x64 runtime are required for this package.
-- Validation has focused on an **RTX 4070 SUPER**. Other GPUs, clean Windows installations, AMD/Intel AI backends, and broad hardware compatibility are not yet validated.
-- This is an **unsigned portable release**. Windows may display an unknown-publisher warning or block execution under stricter security policies. Version 1.0.0 does not imply code signing or Microsoft certification. There is no Microsoft Store release or automatic updater yet.
-- Performance depends on the engine, AI input size, output size, source cadence, and GPU load. **30 FPS is not guaranteed for every model or video.** Historical development benchmarks are not a certification of this portable release on every machine.
-- A 24 FPS source playing at its original cadence is not the same as a 30 FPS source failing to keep up. The app is not advertised as motion interpolation.
-- Upscaling estimates missing detail. Small faces, faint marks, compression artifacts, and effects can be smoothed or reconstructed incorrectly; a sharper image is not always a more faithful image.
+```powershell
+./Update-Channel.ps1 -PackageFolder "C:/extracted/LumiFrame-Windows/runtimes/amd/NEW-VERSION" -Channel amd
+```
+
+Use `-Channel nvidia` for NVIDIA. The installer verifies the full `channel.json` inventory, installs the new version and changes only that channel's `current.txt`. It retains `previous.txt` and old files. Restart to activate. To roll back while closed, copy that channel's `previous.txt` over `current.txt`.
+
+Updates require a new version directory. This script installs local packages; it does not download updates automatically.
+
+## Requirements and known limits
+
+- Windows x64, current Vulkan drivers, and the Microsoft Visual C++ x64 runtime. NVIDIA AI needs a compatible CUDA-capable GPU; AMD needs DirectX 12. Intel-only systems are not supported by this launcher.
+- **AMD physical hardware validation is pending.** Both builds and shared policy tests passed on the NVIDIA development host, but AMD drivers, sustained playback and performance still require an AMD PC.
+- AMD model inputs require even dimensions and at most 720p area. Use 360p/480p AI height for larger sources. Its GPU inference currently uses CPU transfer buffers.
+- This is an unsigned portable preview; it is not a Microsoft Store release. The previous 1.0.0 release remains available.
+- First-time AI preparation may be lengthy. GPU memory, input shape and background load affect performance. All-model 30 FPS and large long-video speedups are not promised.
+- An earlier whole-file V3 audio-drain timeout remains a compatibility follow-up. Short passing tests do not certify every file.
+- Upscaling can smooth or reconstruct faces, fine lines and texture incorrectly. It does not provide motion interpolation or recover guaranteed original detail.
 
 ## Troubleshooting
 
-**Preparation takes a long time:** allow the initial AI plan build to finish. Reusing the same engine and input shape normally avoids repeating the full preparation. Do not delete the cache as a first troubleshooting step.
+**Missing channel or DLL:** fully extract the launcher and all required channel ZIPs into the same folder. Check the directory layout and GPU family. Do not use the 1.0.0 runtime ZIP in this layout or download individual unofficial DLLs.
 
-**The app will not start or reports missing DLLs:** check that both ZIPs were fully extracted into the same folder, and that the GPU driver and Visual C++ runtime are installed. Do not download individual DLLs from unofficial sites.
+**Benchmark skipped or a model failed:** Settings offers remeasurement. Cold model preparation may exceed the bounded test; incomplete candidates are excluded. A manual model selection remains available.
 
-**Playback is slow or black:** try Anime4K to distinguish basic decoding/display problems from an AI-engine problem. Report the engine, settings, GPU/driver, and whether the issue also occurs with another file. First-time AI preparation and an actual rendering failure are different cases.
+**Slow or black playback:** try Anime4K, reduce AI input height, and compare another file. Report the GPU/driver, model, settings and exact error. First-time preparation and a rendering error are different cases.
 
-**CUGAN input-size error:** This version expands supported shapes, but extremely large or unusual inputs can still exceed model or GPU limits. Report the source dimensions, chosen AI height and exact error. The source resolution, internal AI dimensions and final output resolution are different settings.
+**CUGAN input-size error:** reduce AI input height and include the source dimensions in a report. AMD has an explicit 720p-area limit; NVIDIA model bounds vary by shape.
 
-**MP4 cannot preserve the source audio:** try MKV output. Audio is not silently dropped. A previously observed whole-file V3 audio-drain timeout remains a follow-up; bounded passing checks are not a universal stability guarantee.
+**MP4 cannot preserve audio:** try MKV output. Audio is not silently discarded.
 
-## Support, privacy, and licenses
+## Support, privacy and licenses
 
-[Report a problem](https://github.com/ETONOTE/LumiFrame-Windows/issues) with your platform, app version, GPU/device, selected engine, input/output settings, and reproduction steps. Remove personal paths, account information, and secrets. Do not upload original videos or unreviewed logs; share only material you have permission to publish.
+[Report a problem](https://github.com/ETONOTE/LumiFrame-Windows/issues) with the app version, GPU/driver, channel, engine and reproduction steps. Remove personal paths, account information and secrets. Do not upload original videos or unreviewed logs.
 
-Media processing is local. Opening external links or sending a support report is a separate, user-initiated action. See the [Windows privacy notice](PRIVACY.md). Android's separate [privacy and support policy](https://lumiframe-privacy.etonote.chatgpt.site) is also available.
+Processing and benchmarking are local. No private video is used by the startup benchmark and no benchmark telemetry is uploaded. See [PRIVACY.md](PRIVACY.md). Android has a separate [privacy and support policy](https://lumiframe-privacy.etonote.chatgpt.site).
 
-Third-party terms and notices are included in the app. Matching sources and build recipes for LGPL libraries (FFmpeg, libplacebo, and libiconv) are in the [corresponding-source archive](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/LumiFrame-Windows-1.0.0-corresponding-source.zip). These library bytes and their source bundle are unchanged from Beta 2. Upstream projects do not endorse LumiFrame. Use media you own or are authorized to process and share.
-
+Third-party terms and notices are included with each channel. AMD model redistribution permission was confirmed by the project owner on October 18, 2026; model bytes are unchanged. Matching sources and build recipes for the unchanged LGPL libraries are in the [corresponding-source archive](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.217/LumiFrame-Windows-1.1.0-dev.217-corresponding-source.zip). Upstream projects do not endorse LumiFrame. Use media you own or are authorized to process and share.
