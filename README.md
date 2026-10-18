@@ -2,7 +2,7 @@
 
 ![LumiFrame — local video playback and AI upscaling](docs/assets/lumiframe-banner.svg)
 
-**[Download Windows 1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0)** · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
+**[Download Windows 1.0.0 (NVIDIA)](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0)** · **[AMD graphics only — Download](https://github.com/KORTibetfox/AniEdge-for-AMD)** · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
 
 GPU-accelerated video playback and image/video upscaling, with a focus on animation.
 
@@ -22,14 +22,17 @@ This scene illustrates cleaner facial and hair outlines, not a universal quality
 
 | Platform | Version and status | Download or details |
 |---|---|---|
-| Windows x64 | 1.0.0 — unsigned portable release | [Download both required ZIPs](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
+| Windows x64 (NVIDIA) | 1.0.0 — unsigned portable release | [Download both required ZIPs](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
+| Windows x64 (AMD) | AniEdge for AMD — separate AMD-only build | [AMD graphics only — Download](https://github.com/KORTibetfox/AniEdge-for-AMD) |
 | Android | Separate closed-test track | [Earlier Android test notes](ANDROID.md) |
 
 This Windows release does not include an Android APK. The Android document records an earlier test cycle; current Play availability depends on that separate track and tester eligibility.
 
+For AMD graphics cards, use [AniEdge for AMD](https://github.com/KORTibetfox/AniEdge-for-AMD) and follow the download and installation instructions in that repository.
+
 ### Windows installation
 
-Download **both** files:
+For the NVIDIA package, download **both** files:
 
 1. [Application ZIP](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/LumiFrame-Windows-1.0.0-win-x64.zip)
 2. [Required AI runtime ZIP](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/LumiFrame-Windows-1.0.0-tensorrt-runtime.zip)
@@ -127,3 +130,4 @@ The AI input setting is not the original video's resolution. For example, a 720p
 Media processing is local. Opening external links or sending a support report is a separate, user-initiated action. See the [Windows privacy notice](PRIVACY.md). Android's separate [privacy and support policy](https://lumiframe-privacy.etonote.chatgpt.site) is also available.
 
 Third-party terms and notices are included in the app. Matching sources and build recipes for LGPL libraries (FFmpeg, libplacebo, and libiconv) are in the [corresponding-source archive](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.0.0/LumiFrame-Windows-1.0.0-corresponding-source.zip). These library bytes and their source bundle are unchanged from Beta 2. Upstream projects do not endorse LumiFrame. Use media you own or are authorized to process and share.
+
