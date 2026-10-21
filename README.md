@@ -2,7 +2,7 @@
 
 ![LumiFrame — local video playback and AI upscaling](docs/assets/lumiframe-banner.svg)
 
-**[Download LumiFrame Setup — NVIDIA + AMD](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.219/LumiFrame-Windows-1.1.0-dev.219-Setup.exe)** · [Stable NVIDIA 1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
+**[Download LumiFrame Setup — NVIDIA + AMD](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/LumiFrame-Windows-1.1.0-dev.223-Setup.exe)** · [Stable NVIDIA 1.0.0](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
 
 GPU-accelerated video playback and image/video upscaling, with a focus on animation. Processing runs on your computer; media is not uploaded to an upscaling server.
 
@@ -22,7 +22,7 @@ This scene illustrates cleaner facial and hair outlines, not a universal quality
 
 | Platform | Status | Download |
 |---|---|---|
-| Windows x64, NVIDIA or AMD | **1.1.0-dev.219 preview**; AMD physical hardware validation pending | [One installer for both GPUs](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.219/LumiFrame-Windows-1.1.0-dev.219-Setup.exe) |
+| Windows x64, NVIDIA or AMD | **1.1.0-dev.223 preview**; AMD physical hardware validation pending | [One installer for both GPUs](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/LumiFrame-Windows-1.1.0-dev.223-Setup.exe) |
 | Windows x64, NVIDIA | Previous stable release, 1.0.0 | [Previous download](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
 | Android | Separate closed-test track; no APK in this Windows release | [Earlier Android test notes](ANDROID.md) |
 
@@ -30,29 +30,33 @@ The AMD integration uses the teammate's [AniEdge for AMD](https://github.com/KOR
 
 ### Windows installation
 
-1. Download **[LumiFrame-Windows-1.1.0-dev.219-Setup.exe](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.219/LumiFrame-Windows-1.1.0-dev.219-Setup.exe)**.
+1. Download **[LumiFrame-Windows-1.1.0-dev.223-Setup.exe](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/LumiFrame-Windows-1.1.0-dev.223-Setup.exe)**.
 2. Run Setup, choose the installation folder, and install LumiFrame. **This one installer automatically installs both NVIDIA and AMD runtimes and models.** No GPU-specific download selection or manual ZIP merging is needed.
 3. Open **LumiFrame** from the Start menu (or the optional desktop shortcut). It detects the GPU automatically, starts the matching runtime, and benchmarks that channel's models once after the initial installation.
 
-Setup automatically downloads and installs both GPU channels, with SHA256 verification. **Internet is required during installation** (about 2.9 GB of downloads and 3.8 GB installed, plus temporary space). After installation, normal use and benchmarking are offline. Setup always shows the destination folder page, including during reinstallation. The default is `%LOCALAPPDATA%\Programs\LumiFrame`, and files are inside its `LumiFrame-Windows` subfolder. Setup installs for the current user without administrator privileges. GPU drivers and the Microsoft Visual C++ x64 runtime remain system prerequisites. [Installer SHA256](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.219/SHA256SUMS-Setup.txt) verifies the download.
+Setup automatically downloads and installs both GPU channels, with SHA256 verification. **Internet is required during installation** (about 3 GB of downloads and 4.1 GB installed, plus temporary space). After installation, normal use and benchmarking are offline. Setup always shows the destination folder page, including during reinstallation. The default is `%LOCALAPPDATA%\Programs\LumiFrame`, and files are inside its `LumiFrame-Windows` subfolder. Setup installs for the current user without administrator privileges. GPU drivers and the Microsoft Visual C++ x64 runtime remain system prerequisites. [Installer SHA256](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/SHA256SUMS-Setup.txt) verifies the download.
 
-This release installs **NVIDIA 1.1.0-dev.219 and unchanged AMD 1.1.0-dev.218**. Both GPU channels are installed together but retain separate files, settings, benchmark caches and update versions. On a mixed-GPU PC, the launcher prefers the eligible adapter with most dedicated VRAM. An explicit `--backend amd` or `--backend nvidia` can select a present GPU family. Manual model settings are preserved.
+This release installs **NVIDIA 1.1.0-dev.223 and unchanged AMD 1.1.0-dev.218**. Both GPU channels are installed together but retain separate files, settings, benchmark caches and update versions. On a mixed-GPU PC, the launcher prefers the eligible adapter with most dedicated VRAM. An explicit `--backend amd` or `--backend nvidia` can select a present GPU family. Manual model settings are preserved.
 
 Keep your previous portable version for rollback. The standard installer creates a Start menu shortcut and an uninstaller. Advanced portable extraction is available with `Setup.exe /PORTABLE=1 /DIR="C:\LumiFrame"`.
 
 <details>
 <summary>Advanced: manual portable packages and individual channel updates</summary>
 
-The separate launcher, AMD, NVIDIA and NVIDIA TensorRT ZIPs on the [release page](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.219) remain available for manual deployment and GPU-specific updates. **They are not required when using Setup.** Manual NVIDIA deployment requires both NVIDIA ZIPs. Extract manual packages into the same new `LumiFrame-Windows` folder and run its top-level `LumiFrame.exe`.
+The separate launcher, AMD, NVIDIA and NVIDIA TensorRT ZIPs on the [release page](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.1.0-dev.223) remain available for manual deployment and GPU-specific updates. **They are not required when using Setup.** Manual NVIDIA deployment requires both NVIDIA ZIPs. Extract manual packages into the same new `LumiFrame-Windows` folder and run its top-level `LumiFrame.exe`.
 
-The [ZIP checksums](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.219/SHA256SUMS.txt) apply to those original assets. The 1.0.0 runtime ZIP uses an older directory layout. Corresponding-source and GitHub source-code ZIPs are not installation packages.
+The [ZIP checksums](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/SHA256SUMS.txt) apply to those original assets. The 1.0.0 runtime ZIP uses an older directory layout. Corresponding-source and GitHub source-code ZIPs are not installation packages.
 
 </details>
 
 ## What's new
 
+- Version 223 extends faster first-time V3/CUGAN preparation beyond 640 × 360 to additional exact AI input sizes. It preserves models, precision and input settings; quality and playback comparisons passed on RTX 4070 SUPER.
+- At 1280 × 720, time from an empty AI engine cache to the first presented frame fell from 54.21 to 1.91 seconds for V3 and 173.16 to 2.26 seconds for CUGAN on that host. This is preparation time, not a steady-state FPS claim.
+- Prepared-engine support depends on actual width × height and GPU/driver compatibility. Some V3 shapes support Ampere or newer; additional CUGAN shapes require SM 8.9. Other combinations retain normal preparation. See the [full coverage table and validation limits](RELEASE_NOTES_223.md#exact-input-shapes-and-gpu-coverage).
+
 - Version 219 checks NVIDIA architecture, CUDA driver support and model memory requirements before offering models. GTX 1060 / Pascal uses Anime4K Fast/Quality; incompatible saved selections use a compatible session profile.
-- The installer contains NVIDIA 219 and the unchanged AMD 218 channel. The installation folder selector and once-only automatic benchmark remain; later measurements are manual in Settings.
+- The installer contains NVIDIA 223 and the unchanged AMD 218 channel. The installation folder selector and once-only automatic benchmark remain; later measurements are manual in Settings.
 
 - AMD DirectML CUGAN Denoise x2 joins the existing NVIDIA CUDA/TensorRT engines in the same UI.
 - NVIDIA and AMD have separate runtime DLLs, models, saved settings, benchmark results and update versions.
@@ -60,7 +64,7 @@ The [ZIP checksums](https://github.com/ETONOTE/LumiFrame-Windows/releases/downlo
 - Main/settings window scrolling, resizing and maximize/restore repaint moved controls to fix retained pixels and screen corruption.
 - The previous Korean/English interface, playback controls, split comparison and photo/video conversion remain available.
 
-See the [preview release notes](RELEASE_NOTES_219.md) for validation details and limitations.
+See the [preview release notes](RELEASE_NOTES_223.md) for validation details and limitations.
 
 ## First-run model selection
 
@@ -108,7 +112,7 @@ Updates require a new version directory. This script installs local packages; it
 - **AMD physical hardware validation is pending.** Both builds and shared policy tests passed on the NVIDIA development host, but AMD drivers, sustained playback and performance still require an AMD PC.
 - AMD model inputs require even dimensions and at most 720p area. Use 360p/480p AI height for larger sources. Its GPU inference currently uses CPU transfer buffers.
 - This is an unsigned preview; it is not a Microsoft Store release. The previous 1.0.0 release remains available.
-- First-time AI preparation may be lengthy. GPU memory, input shape and background load affect performance. All-model 30 FPS and large long-video speedups are not promised.
+- Version 223 accelerates supported V3/CUGAN shapes; first-time preparation for other combinations may still be lengthy. GPU memory, input shape and background load affect performance. All-model 30 FPS and large long-video speedups are not promised.
 - An earlier whole-file V3 audio-drain timeout remains a compatibility follow-up. Short passing tests do not certify every file.
 - Upscaling can smooth or reconstruct faces, fine lines and texture incorrectly. It does not provide motion interpolation or recover guaranteed original detail.
 
@@ -132,4 +136,4 @@ Updates require a new version directory. This script installs local packages; it
 
 Processing and benchmarking are local. No private video is used by the startup benchmark and no benchmark telemetry is uploaded. See [PRIVACY.md](PRIVACY.md). Android has a separate [privacy and support policy](https://lumiframe-privacy.etonote.chatgpt.site).
 
-Third-party terms and notices are included with each channel. AMD model redistribution permission was confirmed by the project owner on October 18, 2026; model bytes are unchanged. Matching sources and build recipes for the unchanged LGPL libraries are in the [corresponding-source archive](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.219/LumiFrame-Windows-1.1.0-dev.219-corresponding-source.zip). Upstream projects do not endorse LumiFrame. Use media you own or are authorized to process and share.
+Third-party terms and notices are included with each channel. AMD model redistribution permission was confirmed by the project owner on October 18, 2026; model bytes are unchanged. Matching sources and build recipes for the unchanged LGPL libraries are in the [corresponding-source archive](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/LumiFrame-Windows-1.1.0-dev.223-corresponding-source.zip). Upstream projects do not endorse LumiFrame. Use media you own or are authorized to process and share.

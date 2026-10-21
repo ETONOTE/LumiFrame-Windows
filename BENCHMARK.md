@@ -1,4 +1,4 @@
-# LumiFrame first-run performance selection — 219
+# LumiFrame startup and first-run performance selection — 223
 
 The NVIDIA and AMD applications now run a bounded synthetic benchmark on first use and choose a playback model from their own channel. The shared root launcher still selects the GPU family. Existing manually saved model settings are preserved; the benchmark recommendation is shown without replacing them. Settings → **성능 다시 측정하고 모델 자동 선택** explicitly measures and applies a new recommendation.
 
@@ -36,3 +36,13 @@ Version 218 passed five targeted tests in each GPU build (ten total). A fresh re
 The available host is an NVIDIA RTX 4070 SUPER. AMD compilation and shared selection/persistence logic can be checked here; AMD driver compatibility and the resulting AMD model choice still require an AMD PC. A short synthetic check is a startup recommendation, not a guarantee for every resolution, frame rate, video or background GPU workload.
 
 Version 219 passed seven NVIDIA tests and four shared-code AMD regression tests. Real packaged Fast/Quality runs completed 120 frames each, V3 completed 51 frames, and a synthetic 640 × 360 photo produced a 1920 × 1080 PNG on RTX 4070 SUPER. Pascal/Turing/Ada, old-driver, missing-CUDA, low-VRAM and saved-choice cases are policy fixtures; GTX 1060 physical testing is not claimed. The shipped AMD 218 channel is byte-for-byte unchanged.
+
+## Version 223: AI engine preparation at more input sizes
+
+The once-only model-selection benchmark above is unchanged. Version 223 separately reduces V3/CUGAN engine preparation using verified hardware-compatible prepared engines. Coverage is keyed to actual input width × height; see [all shapes and GPU conditions](RELEASE_NOTES_223.md#exact-input-shapes-and-gpu-coverage). Existing valid native caches take priority. Unsupported or damaged bundles fall back to the original build path.
+
+On RTX 4070 SUPER, an empty engine cache through the first presented frame at 1280 × 720 measured V3 **54.21 → 1.91 seconds** and CUGAN **173.16 → 2.26 seconds**. At 1920 × 1080, V3 measured **80.97 → 2.27 seconds** and CUGAN **331.09 → 2.69 seconds**. These are first-frame timings, not steady-state frame rates or guarantees for other PCs.
+
+42 model/input combinations compared the same three consecutive source frames and 240 playback frames per version in alternating runs. Seven representative cases were rerun after the final long-path correction. Maximum pixel error was 2/255, and worst frame mean absolute error was 0.05263/255 (limits 3/255 and 0.15/255). Playback passed mean GPU time ≤105%, P95 GPU time ≤110%, and FPS ≥95% of baseline. The worst observed FPS ratio was 97.87% and largest mean GPU-time ratio was 104.88%. Models, precision and input settings were preserved; small floating-point differences remain possible.
+
+Six audio/video sync runs and 12 fallback/cache checks passed. CUGAN 2560×1440 and 3840×2160 prepared engines were excluded because the original baseline could not complete on the 12 GB host. Other physical GPUs remain unmeasured, and these short runs do not certify every video. The AMD 218 channel and its initial benchmark remain unchanged.
