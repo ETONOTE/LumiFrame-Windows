@@ -1,5 +1,9 @@
 # LumiFrame Windows 1.1.0-dev.223
 
+**Latest unified Windows download — NVIDIA + AMD: [Download the single Setup.exe](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.223/LumiFrame-Windows-1.1.0-dev.223-Setup.exe).** Install it and launch LumiFrame from the new Start menu entry. AMD users should use this installer; the older 1.0.0 release is NVIDIA-only.
+
+This is the existing unsigned development build, now listed as GitHub's Latest download. The installer, models and runtime files are unchanged. AMD physical hardware validation remains pending. The included AMD channel displays `1.1.0-dev.218` in the app footer; `1.0.0` identifies an older executable.
+
 Version 223 reduces first-time NVIDIA AnimeVideo-v3 and CUGAN preparation at more AI input sizes, while retaining the earlier 640 × 360 improvement. It ships the same application, model and engine files as the validated local 223 installer. The models, computation precision, input-resolution settings and playback path are preserved; image and playback comparisons passed the criteria below.
 
 ## Download and installation
