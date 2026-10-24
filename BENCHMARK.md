@@ -1,4 +1,4 @@
-# LumiFrame startup and first-run performance selection — 223
+# LumiFrame startup and first-run performance selection — 230
 
 The NVIDIA and AMD applications now run a bounded synthetic benchmark on first use and choose a playback model from their own channel. The shared root launcher still selects the GPU family. Existing manually saved model settings are preserved; the benchmark recommendation is shown without replacing them. Settings → **성능 다시 측정하고 모델 자동 선택** explicitly measures and applies a new recommendation.
 
@@ -46,3 +46,18 @@ On RTX 4070 SUPER, an empty engine cache through the first presented frame at 12
 42 model/input combinations compared the same three consecutive source frames and 240 playback frames per version in alternating runs. Seven representative cases were rerun after the final long-path correction. Maximum pixel error was 2/255, and worst frame mean absolute error was 0.05263/255 (limits 3/255 and 0.15/255). Playback passed mean GPU time ≤105%, P95 GPU time ≤110%, and FPS ≥95% of baseline. The worst observed FPS ratio was 97.87% and largest mean GPU-time ratio was 104.88%. Models, precision and input settings were preserved; small floating-point differences remain possible.
 
 Six audio/video sync runs and 12 fallback/cache checks passed. CUGAN 2560×1440 and 3840×2160 prepared engines were excluded because the original baseline could not complete on the 12 GB host. Other physical GPUs remain unmeasured, and these short runs do not certify every video. The AMD 218 channel and its initial benchmark remain unchanged.
+
+## Version 230: actual video-file conversion
+
+The once-only playback model-selection benchmark above is unchanged. Public 230 separately improves file conversion; its last CUGAN route is portable across eligible SM 8.9 devices and builds cuDNN plans on the target GPU. Other architectures/shapes keep the generic route.
+
+| Engine | Compared with | Conversion seconds, old → public 230 | Reduction | Full-process seconds, old → public 230 |
+|---|---|---:|---:|---:|
+| V3 | 226 | 1.763 → 1.766 | -0.17% | 3.340 → 3.276 |
+| V3 | 229 | 1.770 → 1.765 | 0.28% | 3.248 → 3.242 |
+| V3 | 230 | 1.771 → 1.777 | -0.38% | 3.271 → 3.311 |
+| CUGAN | 226 | 8.893 → 7.727 | 13.11% | 10.433 → 9.519 |
+| CUGAN | 229 | 7.861 → 7.736 | 1.59% | 9.509 → 9.464 |
+| CUGAN | 230 | 7.726 → 7.730 | -0.06% | 9.386 → 9.462 |
+
+Three interleaved repeats per version used a 298-frame source on RTX 4070 SUPER, with caches warm and no competing GPU job. Whole-process time includes preparation and finalization. These are actual file-conversion timings, not playback FPS. See [quality, hardware coverage and installation validation](RELEASE_NOTES_230.md). AMD 218 bytes are unchanged, and other physical GPUs were not benchmarked.
