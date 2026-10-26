@@ -1,11 +1,11 @@
-# AMD channel update feed
+# AMD channel updates
 
-`amd.json` identifies the AMD channel approved by the LumiFrame release owner. It is separate from the latest unified installer release. It does not grant contributors permission to publish a channel or provide access to the private application source.
+AMD channel development and publication are managed separately in [LumiFrame-AMD-Releases](https://github.com/ETONOTE/LumiFrame-AMD-Releases). The in-app AMD updater reads [that repository's current feed](https://github.com/ETONOTE/LumiFrame-AMD-Releases/blob/main/updates/amd.json).
 
-The initial feed points to the existing, unchanged AMD218 asset distributed with230. It does not announce a new AMD optimization. Existing230 installers do not yet contain the new in-app updater UI; only builds that include that feature consume this feed. Latest installer links remain unchanged.
+The `amd.json` file in this directory is a legacy record of the AMD218 asset included with unified230. The new updater does not use this legacy feed. The unified installer and NVIDIA release assets remain managed in this repository.
 
-The updater accepts HTTPS assets from `ETONOTE/LumiFrame-Windows` release URLs, verifies the ZIP size/SHA256 and the full AMD channel manifest, then switches only the AMD version pointer. Previous versions remain available for rollback. Reading this feed is not permission to bypass model, licensing or hardware acceptance checks.
+The AMD developer builds and validates the AMD channel and publishes it directly in the separate AMD release repository. Per-release approval or manual integration by the application owner is not required. AMD repository access does not grant write access to the unified application or NVIDIA repositories.
 
-Before a future feed change, the owner must verify the exact published asset, AMD-only package contents, compatibility with the current shared application, image quality, actual conversion/frame/PTS/audio behavior, AMD hardware results and rollback. Deliveries made against an older development baseline must be rebased onto the current approved AMD application before publication, preserving the update UI. Monotonically increase `sequence`; keep immutable release assets and versions.
+Existing230 installations need the [AMD update feature package](https://github.com/ETONOTE/LumiFrame-AMD-Releases/releases/tag/amd-update-support-v1) once before the in-app update button is available. This first feature package is a prerelease awaiting physical AMD acceptance; it has not replaced the stable unified installer or activated a new production AMD feed.
 
-The GitHub account that owns this repository controls official feed updates. Access to a separate AMD development repository does not grant write access here. No workflow automatically promotes collaborator submissions.
+After that initial setup, users running the AMD channel can check, download, apply and roll back AMD updates from Settings. The updater verifies the AMD package and changes only the AMD channel version, preserving NVIDIA, the root launcher and previous AMD versions. Physical AMD quality, playback, conversion, frame/PTS/audio and rollback checks remain the AMD developer's responsibility before each engine release.
