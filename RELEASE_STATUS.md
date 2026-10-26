@@ -1,6 +1,6 @@
 # Release status
 
-Last updated: **October 24, 2026**.
+Last updated: **October 26, 2026**.
 
 ## Latest Windows download — NVIDIA + AMD
 
@@ -11,6 +11,12 @@ The latest CUGAN route requires SM 8.9 and actual 640 × 360 AI input. Other sup
 Actual renderer/encoder comparisons passed against 225, 226, 229 and 230. Final binary output, frame/timestamp/audio, cancellation, cache/integrity, photo/playback and host checks passed. Isolated fresh and 223 upgrade installations and downloaded Setup are verified before Latest promotion. Existing installed230 development files and previous public assets are preserved.
 
 **AMD and a second NVIDIA physical GPU remain untested here.** AMD 218 is identical to 223. This is an unsigned development build, not a Microsoft Store release. Internet is required during installation, but normal processing is local. No Android APK is included.
+
+## AMD selection for the next unified release
+
+At each new unified release, the application owner checks the current production release in [LumiFrame-AMD-Releases](https://github.com/ETONOTE/LumiFrame-AMD-Releases), reviews its AMD hardware validation and compatibility, and pins the selected AMD version, asset URLs and SHA256 values in the installer. Include the AMD update feature and verify fresh installation, upgrade, rollback and preservation of the NVIDIA channel and user settings before publication. Record the included AMD version in the unified release notes.
+
+Existing unified installer assets remain unchanged between unified releases. AMD publication does not automatically rebuild them or change which AMD version an existing Setup downloads. Users with the in-app AMD updater can continue receiving AMD channel releases independently. See the [AMD update policy](updates/README.md).
 
 ## Previous Windows versions
 
