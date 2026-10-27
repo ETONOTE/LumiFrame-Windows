@@ -45,6 +45,12 @@ Completed local compatibility checks:
 
 These are local build, behavior and package checks. They do not constitute installation/upgrade validation or verification of publicly downloaded assets.
 
+### Separate installer verification completed after packaging
+
+Offline fresh-install and 230-to-231 update checks passed in isolated portable fixtures. The public Setup was subsequently downloaded without GitHub authentication, matched the shipping SHA256, and passed a separate fresh-install test that downloaded and verified all five public archives. Each fixture verified all **925 installed payload files**, including **674 unchanged NVIDIA/AMD channel files**, correct channel versions and preserved preferences. The existing 230 source package and the real user's product registration, shortcuts and preferences remained unchanged. These were portable-fixture checks, not fresh interactive registration/shortcut installation tests.
+
+The installed package also passed NVIDIA launcher/CUGAN frame capture and Intel-runtime common-Vulkan playback/photo checks on the NVIDIA development GPU. The single CUGAN frame differed from the historical 230 reference by a maximum of **1/255**, mean absolute error **0.01455/255**, and edge mean absolute error **0.04141/255**, within the existing limits of **3/255, 0.05/255 and 0.10/255** respectively. It was not pixel-identical. This limited check does not establish output identity for every video or any new performance result.
+
 **Physical Intel hardware has not been tested.** The shared-path smoke checks do not establish Intel driver compatibility, sustained playback behavior, power use or FPS. AMD physical hardware validation and a second NVIDIA GPU remain existing limitations. No new performance claim is made for those devices.
 
 This remains an unsigned development build, not a Microsoft Store release. Android follows its separate test track and no Android APK is included. Media stays local; existing privacy and third-party license notices remain applicable.
