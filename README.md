@@ -1,5 +1,9 @@
 # LumiFrame
 
+**Android APK** · [English download guide](https://etonote.github.io/LumiFrame-Windows/) · [한국어 다운로드 안내](https://etonote.github.io/LumiFrame-Windows/ko/) · [Download the signed Android beta / 안드로이드 APK 받기](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0-beta39)
+
+LumiFrame (루미프레임) plays local videos with real-time upscaling and converts photos and videos on your device. 안드로이드에서 저해상도 애니메이션과 영상을 업스케일해 재생하고 사진·영상을 변환할 수 있습니다.
+
 ![LumiFrame — local video playback and AI upscaling](docs/assets/lumiframe-banner.svg)
 
 **[LumiFrame 231 Setup (NVIDIA + AMD + Intel)](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.231/LumiFrame-Windows-1.1.0-dev.231-Setup.exe)** · [Getting started](#windows-installation) · [Report an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Roadmap](ROADMAP.md) · [Privacy](PRIVACY.md)
@@ -10,7 +14,7 @@ GPU-accelerated video playback and image/video upscaling, with a focus on animat
 
 LumiFrame integrates NVIDIA, AMD and Intel runtimes behind one interface. On first launch, NVIDIA and AMD retain their existing once-only model measurement and recommendation. Intel starts with Anime4K Fast without a startup benchmark; Quality can be selected manually. The Windows interface supports Korean and English; use the language button beside Help.
 
-This repository hosts **Windows downloads, documentation and issue reports**, plus separate Android test information. It is not the application source repository.
+This repository hosts **Android APKs, Windows installers, documentation and issue reports**.
 
 ## Upscaling example
 
@@ -26,7 +30,7 @@ This scene illustrates cleaner facial and hair outlines, not a universal quality
 |---|---|---|
 | Windows x64, NVIDIA, AMD or Intel | **1.1.0-dev.231 development build**; installer checks passed; Intel/AMD physical hardware validation pending | [One installer for all three channels](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.231/LumiFrame-Windows-1.1.0-dev.231-Setup.exe) |
 | Windows x64, NVIDIA only | Legacy 1.0.0; no AMD DirectML support | [Previous NVIDIA-only download](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
-| Android | Separate closed-test track; no APK in this Windows release | [Earlier Android test notes](ANDROID.md) |
+| Android 10+, 64-bit ARM | **1.0.0-beta39** signed APK | [Download APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/android-v1.0.0-beta39/LumiFrame-1.0.0-beta39.apk) · [Installation and compatibility](ANDROID.md) |
 
 The AMD integration uses the teammate's [AniEdge for AMD](https://github.com/KORTibetfox/AniEdge-for-AMD) model and DirectML integration. Its upstream project remains separate; the unified download above runs inside LumiFrame.
 

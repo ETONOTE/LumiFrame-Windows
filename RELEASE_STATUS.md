@@ -32,4 +32,4 @@ Existing unified installer assets remain unchanged between unified releases. AMD
 
 ## Android
 
-[Android notes](ANDROID.md) describe a separate closed-test track. This Windows release does not establish Play review or mobile validation status.
+The [Android guide](ANDROID.md) covers the [signed Android beta APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0-beta39), device requirements and installation.

@@ -1,47 +1,38 @@
-# LumiFrame for Android
+# LumiFrame for Android · 루미프레임
 
-## Availability
+[English download page](https://etonote.github.io/LumiFrame-Windows/) · [한국어 다운로드 페이지](https://etonote.github.io/LumiFrame-Windows/ko/)
 
-As of **October 6, 2026**, version **1.0.0-beta1 (version code 5)** has been submitted to Google Play closed testing. The last verified submission status was under review. This is not a public Play Store launch or confirmation that testers can install it yet.
+## Install the Android beta
 
-**A public APK download is not available in this repository yet.** The direct-download package must complete its public-distribution privacy checks first. No inactive tester URL or internal debug APK is presented as an installation link.
+1. On a compatible 64-bit ARM phone or tablet running Android 10 or later, [download LumiFrame 1.0.0-beta39 (APK)](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/android-v1.0.0-beta39/LumiFrame-1.0.0-beta39.apk).
+2. Open the downloaded file. If Android asks for permission to install apps from the browser or file manager you used, grant it for this installation. You can turn that permission off afterwards.
+3. Open LumiFrame and select a local video for real-time upscaled playback, or choose a photo or video to convert. Photo conversion requires Android 14 or later.
 
-Newer local development builds are separate from the submitted beta. Do not assume that a feature shown in a development screenshot is included in beta1.
+If Android rejects an update over a Google Play installation, the signing certificates or version codes may differ. Keeping the existing app and updating through its original channel preserves its data.
 
-## Features in the test build
+## 안드로이드 베타 설치
 
-- Local video playback using Anime4K, E6, and a lightweight AnimeVideo-v3 path.
-- Automatic/manual engine selection, pause/resume, timeline seeking, 10-second jumps, and landscape playback.
-- Image-to-PNG and video-to-MP4 conversion, with cancellation and save/open controls.
-- **Maximum output: 1920 x 1080.** Android 1440p output is not supported.
+1. Android 10 이상인 64비트 ARM 기기에서 [LumiFrame 1.0.0-beta39 APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/android-v1.0.0-beta39/LumiFrame-1.0.0-beta39.apk)를 받습니다.
+2. 휴대폰에서 다운로드한 파일을 엽니다. 설치 권한을 묻는 경우 파일을 연 브라우저나 파일 관리자에만 허용하면 됩니다. 설치 후 이 권한을 다시 끌 수 있습니다.
+3. LumiFrame에서 휴대폰에 저장된 영상을 선택하면 업스케일 재생을 시작할 수 있습니다. 사진과 영상은 변환해 파일로 저장할 수도 있습니다. 사진 변환에는 Android 14 이상이 필요합니다.
 
-Playback uses mobile-oriented models and settings; it is not the complete six-engine Windows package. Model choices for file conversion can also differ from those used for live playback.
+Google Play 설치본 위에 업데이트가 거부되면 서명이나 버전 코드가 다를 수 있습니다. 기존 앱과 데이터를 유지하려면 처음 설치한 경로를 이용하세요.
 
-## Device requirements
+## Playback and compatibility · 재생 및 호환성
 
-- Android 10 or later and a 64-bit ARM device.
-- Vulkan 1.1 or later with compatible hardware media decoding and GPU support.
-- Image conversion currently requires Android 14 or later.
+Anime4K, E6 and V3 offer different playback quality and speed. Beta39 includes the original 24-channel V3 and the higher-quality 48-channel V3-Quality. Hardware decoding and compatible GPU support are required for accelerated playback. Performance and heat vary with the selected model, the source and the device.
 
-Testing has focused on a Samsung SM-F741N with Adreno 750. Support and speed on other devices are not guaranteed. A supported Android version alone does not prove that a device supports the required GPU/media path.
+업스케일 재생 중 일시정지·재개와 앞뒤 탐색을 사용할 수 있습니다. beta39에서는 기본 V3와 고화질 V3-Quality를 선택할 수 있습니다. 재생 속도와 발열은 기기와 원본 영상에 따라 달라집니다.
 
-## Known limitations
+| Package details / 파일 정보 | Value |
+|---|---|
+| Version / 버전 | 1.0.0-beta39 (47) |
+| Android package | `dev.upscaling.player.pipeline` |
+| ABI | `arm64-v8a` |
+| APK SHA-256 | `877531c098c851db8a6ae018a0752581c79c8f5d2ac222e589a13db63c73d89e` |
 
-- **V3 audio/video synchronization remains unresolved in the general release path.** Beta1 is not a fix for that issue.
-- Exported AAC audio can have a startup timing offset on affected inputs.
-- Separate earlier tests reached 30 FPS with specific mobile models and working resolutions. Those results do not guarantee every model, input, device, or long playback session in this package.
-- Automatic switching, long-duration thermal behavior, and wider device compatibility still need further validation.
+## Feedback and privacy · 문의 및 개인정보
 
-Use test media you have permission to process and keep your originals. This is an experimental test build, not a replacement for a reliable player when uninterrupted playback is essential.
+Media is processed on your device. To report a problem, include your device model, Android version, selected mode and steps to reproduce it. 개인 미디어를 첨부하지 않아도 기종·Android 버전·사용한 모드와 재현 순서로 문제를 알려 주실 수 있습니다.
 
-## Installation channels
-
-When an APK becomes available, use only the link published in this repository and verify its SHA-256. Android may require per-app permission to install a downloaded APK. Do not disable device-wide security protections or install files from unofficial mirrors.
-
-Google Play and directly distributed APKs can use different signing certificates. One may not update the other in place; newer internal builds may also have a higher version code. **Do not uninstall an existing app without checking its saved data first.** Separate channel-specific installation instructions will be provided with the APK.
-
-## Feedback and privacy
-
-[Open an issue](https://github.com/ETONOTE/LumiFrame-Windows/issues) with your device model, Android version, app version, engine, input/output settings, and reproduction steps. Do not post device serial numbers, wireless-debugging addresses, personal media, or unreviewed logs.
-
-Media is processed locally rather than uploaded to an upscaling server. See the [privacy and support policy](https://lumiframe-privacy.etonote.chatgpt.site).
+[Release notes / 변경 사항](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0-beta39) · [Report an issue / 문제 신고](https://github.com/ETONOTE/LumiFrame-Windows/issues) · [Privacy / 개인정보 처리방침](https://lumiframe-privacy.etonote.chatgpt.site)
