@@ -2,7 +2,9 @@
 
 **Android APK** · [English download guide](https://etonote.github.io/LumiFrame-Windows/) · [한국어 다운로드 안내](https://etonote.github.io/LumiFrame-Windows/ko/) · [Download the signed Android beta / 안드로이드 APK 받기](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0-beta39)
 
-LumiFrame (루미프레임) plays local videos with real-time upscaling and converts photos and videos on your device. 안드로이드에서 저해상도 애니메이션과 영상을 업스케일해 재생하고 사진·영상을 변환할 수 있습니다.
+LumiFrame is a real-time anime upscaler and video player for Android and Windows. Use Anime4K for animation upscaling during playback, or export a higher-resolution video to keep.
+
+루미프레임은 안드로이드와 Windows에서 실시간 애니메이션 업스케일링을 지원하는 영상 플레이어입니다. 저해상도 애니를 감상하면서 화질을 높이거나, 변환한 사진과 영상을 파일로 저장할 수 있습니다.
 
 ![LumiFrame — local video playback and AI upscaling](docs/assets/lumiframe-banner.svg)
 
