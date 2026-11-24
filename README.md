@@ -1,6 +1,6 @@
 # LumiFrame
 
-**Android APK** · [English download guide](https://etonote.github.io/LumiFrame-Windows/) · [한국어 다운로드 안내](https://etonote.github.io/LumiFrame-Windows/ko/) · [Download the signed Android beta / 안드로이드 APK 받기](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0-beta39)
+**Android APK** · [English download guide](https://etonote.github.io/LumiFrame-Windows/) · [한국어 다운로드 안내](https://etonote.github.io/LumiFrame-Windows/ko/) · [Download the signed Android APK / 안드로이드 APK 받기](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0)
 
 LumiFrame is a real-time anime upscaler and video player for Android and Windows. Use Anime4K for animation upscaling during playback, or export a higher-resolution video to keep.
 
@@ -32,7 +32,7 @@ This scene illustrates cleaner facial and hair outlines, not a universal quality
 |---|---|---|
 | Windows x64, NVIDIA, AMD or Intel | **1.1.0-dev.231 development build**; installer checks passed; Intel/AMD physical hardware validation pending | [One installer for all three channels](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/v1.1.0-dev.231/LumiFrame-Windows-1.1.0-dev.231-Setup.exe) |
 | Windows x64, NVIDIA only | Legacy 1.0.0; no AMD DirectML support | [Previous NVIDIA-only download](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/v1.0.0) |
-| Android 10+, 64-bit ARM | **1.0.0-beta39** signed APK | [Download APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/android-v1.0.0-beta39/LumiFrame-1.0.0-beta39.apk) · [Installation and compatibility](ANDROID.md) |
+| Android 10+, 64-bit ARM | **1.0.0** signed APK | [Download APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/download/android-v1.0.0/LumiFrame-1.0.0.apk) · [Installation and compatibility](ANDROID.md) |
 
 The AMD integration uses the teammate's [AniEdge for AMD](https://github.com/KORTibetfox/AniEdge-for-AMD) model and DirectML integration. Its upstream project remains separate; the unified download above runs inside LumiFrame.
 

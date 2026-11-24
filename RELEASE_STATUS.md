@@ -32,4 +32,4 @@ Existing unified installer assets remain unchanged between unified releases. AMD
 
 ## Android
 
-The [Android guide](ANDROID.md) covers the [signed Android beta APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0-beta39), device requirements and installation.
+The [Android guide](ANDROID.md) covers the [signed Android APK](https://github.com/ETONOTE/LumiFrame-Windows/releases/tag/android-v1.0.0), device requirements and installation.
